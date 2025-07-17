@@ -65,74 +65,83 @@ const EditInventory = () => {
             price: ""
         });
 
-        dispatch(updateStocks(input))   
+        dispatch(updateStocks(input))
         navigate("/inventorydetail")
 
     };
 
     return (
-        <div className="container mx-auto my-36 px-4">
-            <form onSubmit={handleSubmit}>
-                <div className="grid gap-6 mb-6 md:grid-cols-2">
+        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white flex items-center justify-center px-4 py-12">
+            <form
+                onSubmit={handleSubmit}
+                className="w-full max-w-3xl bg-white/10 backdrop-blur-md p-10 rounded-2xl shadow-xl border border-white/20"
+            >
+                <h2 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-pink-500 to-blue-500 bg-clip-text text-transparent">
+                    Update Product
+                </h2>
 
+                <div className="grid gap-6 md:grid-cols-2">
+                    {/* Product Name */}
                     <div>
-                        <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900">
-                            Product name
+                        <label htmlFor="name" className="block text-sm mb-2 font-medium text-white">
+                            Product Name
                         </label>
                         <input
                             type="text"
                             id="name"
                             value={input.name}
                             onChange={handleChange}
-                            className={`bg-gray-50 border ${error.name ? "border-red-500" : "border-gray-300"} text-gray-900 text-sm rounded-lg block w-full p-2.5`}
                             placeholder="Apple MacBook Pro 17"
+                            className={`w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-300 border ${error.name ? "border-red-500" : "border-white/30"
+                                } focus:outline-none focus:ring-2 focus:ring-purple-400`}
                         />
-                        {error.name && <p className="text-red-500 text-sm mt-1">{error.name}</p>}
+                        {error.name && <p className="text-red-400 text-sm mt-1">{error.name}</p>}
                     </div>
 
-
+                    {/* Category */}
                     <div>
-                        <label className={`block text-sm ${error.color ? "text-red-600" : "text-gray-600"}`}>Colors</label>
-                        <div className="flex items-center gap-4 mt-2">
+                        <label htmlFor="catagory" className="block text-sm mb-2 font-medium text-white">
+                            Category
+                        </label>
+                        <select
+                            id="catagory"
+                            value={input.catagory}
+                            onChange={handleChange}
+                            className={`w-full p-3 rounded-lg bg-white/20 text-white border ${error.catagory ? "border-red-500" : "border-white/30"
+                                } focus:outline-none focus:ring-2 focus:ring-purple-400`}
+                        >
+                            <option className="text-black" value="">--- Choose Category ---</option>
+                            <option className="text-black" value="Laptop">Laptop</option>
+                            <option className="text-black" value="Tablet">Tablet</option>
+                            <option className="text-black" value="Mobile">Mobile</option>
+                        </select>
+                        {error.catagory && <p className="text-red-400 text-sm mt-1">{error.catagory}</p>}
+                    </div>
+
+                    {/* Color Options */}
+                    <div>
+                        <label className="block text-sm font-medium text-white mb-2">Color</label>
+                        <div className="flex flex-wrap gap-4">
                             {["Silver", "White", "Black", "Gray"].map((color) => (
-                                <label className="flex items-center" key={color}>
+                                <label key={color} className="flex items-center gap-2 cursor-pointer">
                                     <input
                                         type="radio"
                                         value={color}
                                         onChange={handleChange}
                                         checked={input.color === color}
-                                        className="mr-2 w-4 h-4"
+                                        className="accent-purple-500"
                                         name="color"
                                     />
-                                    {color}
+                                    <span className="text-sm">{color}</span>
                                 </label>
                             ))}
                         </div>
-                        {error.color && <p className="text-red-500 text-sm mt-1">{error.color}</p>}
+                        {error.color && <p className="text-red-400 text-sm mt-1">{error.color}</p>}
                     </div>
 
-
+                    {/* Price */}
                     <div>
-                        <label htmlFor="catagory" className="block mb-2 text-sm font-medium text-gray-900">
-                            Category
-                        </label>
-                        <select
-                            onChange={handleChange}
-                            id="catagory"
-                            value={input.catagory}
-                            className={`bg-gray-50 border ${error.catagory ? "border-red-500" : "border-gray-300"} text-gray-900 text-sm rounded-lg block w-full p-2.5`}
-                        >
-                            <option value="">---choose Category---</option>
-                            <option value="Laptop">Laptop</option>
-                            <option value="Tablet">Tablet</option>
-                            <option value="Mobile">Mobile</option>
-                        </select>
-                        {error.catagory && <p className="text-red-500 text-sm mt-1">{error.catagory}</p>}
-                    </div>
-
-
-                    <div>
-                        <label htmlFor="price" className="block mb-2 text-sm font-medium text-gray-900">
+                        <label htmlFor="price" className="block text-sm mb-2 font-medium text-white">
                             Price
                         </label>
                         <input
@@ -140,22 +149,21 @@ const EditInventory = () => {
                             id="price"
                             value={input.price}
                             onChange={handleChange}
-                            className={`bg-gray-50 border ${error.price ? "border-red-500" : "border-gray-300"} text-gray-900 text-sm rounded-lg block w-full p-2.5`}
                             placeholder="$1000"
+                            className={`w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-300 border ${error.price ? "border-red-500" : "border-white/30"
+                                } focus:outline-none focus:ring-2 focus:ring-purple-400`}
                         />
-                        {error.price && <p className="text-red-500 text-sm mt-1">{error.price}</p>}
+                        {error.price && <p className="text-red-400 text-sm mt-1">{error.price}</p>}
                     </div>
                 </div>
 
-
                 <button
                     type="submit"
-                    className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5"
+                    className="mt-8 w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 py-3 rounded-lg font-semibold shadow-lg transition duration-300"
                 >
-                    Submit
+                    Update
                 </button>
             </form>
-
         </div>
     );
 };

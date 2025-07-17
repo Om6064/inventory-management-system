@@ -1,5 +1,5 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
-import { list } from "postcss";
+
 
 const stockSlice = createSlice({
     name: "stock",

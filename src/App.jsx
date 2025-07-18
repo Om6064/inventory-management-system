@@ -7,6 +7,8 @@ import AddInventory from "./components/AddInventory"
 import Invantorydetails from "./page/Invantorydetails"
 import { ToastContainer } from "react-toastify"
 import EditInventory from "./components/EditInventory"
+import Login from "./page/Login"
+import ProtectedRouter from "./components/ProtectedRouter"
 
 
 
@@ -18,9 +20,10 @@ const App = () => {
                 <Route path="/" element={<Home/>}/>
                 <Route path="/sarvice" element={<Sarvice/>}/>
                 <Route path="/contect" element={<Contect/>}/>
-                <Route path="/addinventory" element={<AddInventory/>}/>
-                <Route path="/inventorydetail" element={<Invantorydetails/>}/>
-                <Route path="/editinventory/:id" element={<EditInventory />}/>
+                <Route path="/addinventory" element={<ProtectedRouter Component={AddInventory} />} />
+                <Route path="/inventorydetail" element={<ProtectedRouter Component={Invantorydetails}/>}/>
+                <Route path="/editinventory/:id" element={<ProtectedRouter Component={EditInventory}/>}/>
+                <Route path="/login/" element={<Login/>}/>
             </Routes>
             <ToastContainer />
         </BrowserRouter>

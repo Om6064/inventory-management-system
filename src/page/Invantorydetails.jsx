@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
-import { removeStocks } from "../feature/stock/stockSlice";
+import {  filterCatagory, removeStocks, searchStock, sortPrice } from "../feature/stock/stockSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
+import { useState } from "react";
 
 const Invantorydetails = () => {
+  const [isSort,setIsSort] = useState(false)
   const products = useSelector((state) => state.stock.list);
   const dispatch = useDispatch();
 
@@ -12,6 +14,20 @@ const Invantorydetails = () => {
     toast.error("Product Deleted Successfully");
   };
 
+  const handleChange = (e) => {
+    dispatch(searchStock(e.target.value))
+  }
+  
+  const handleCatgory = (e) => {
+    dispatch(filterCatagory(e.target.value))
+  }
+  const handleSort = () => {
+    setIsSort(!isSort)
+    dispatch(sortPrice(!isSort))
+  }
+
+
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white py-20 px-4">
       <div className="container mx-auto">
@@ -19,12 +35,37 @@ const Invantorydetails = () => {
           <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">
             Inventory Details
           </h1>
-          <Link
-            to="/addinventory"
-            className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-400 hover:to-pink-400 text-white px-6 py-2 rounded-xl font-semibold shadow-lg transition-all duration-300"
-          >
-            + Add Product
-          </Link>
+          <div className="flex gap-4 items-center">
+            <div>
+              <input
+                type="text"
+                id="name"
+                onChange={handleChange}
+                placeholder="Search Here"
+                className={`w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-300 border focus:outline-none focus:ring-2 focus:ring-purple-400`}
+              />
+            </div>
+            <div>
+              <select
+                id="catagory"
+                onChange={handleCatgory}
+                className={`w-full p-3 rounded-lg bg-white/20 text-white border focus:outline-none focus:ring-2 focus:ring-purple-400`}
+              >
+                <option className="text-black" value="">--- Select Category ---</option>
+                <option className="text-black" value="Laptop">Laptop</option>
+                <option className="text-black" value="Tablet">Tablet</option>
+                <option className="text-black" value="Mobile">Mobile</option>
+              </select>
+            </div>
+            <div>
+              <Link
+                to="/addinventory"
+                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-400 hover:to-pink-400 text-white px-6 py-4 rounded-xl font-semibold shadow-lg transition-all duration-300"
+              >
+                + Add Product
+              </Link>
+            </div>
+          </div>
         </div>
 
         {products.length === 0 ? (
@@ -37,7 +78,9 @@ const Invantorydetails = () => {
                   <th className="px-6 py-4">Product Name</th>
                   <th className="px-6 py-4">Color</th>
                   <th className="px-6 py-4">Category</th>
-                  <th className="px-6 py-4">Price</th>
+                  <th className="px-6 py-4 cursor-pointer" onClick={() => {
+                    handleSort()
+                  }}>Price {isSort ? "⬇️" : "⬆️"}</th>
                   <th className="px-6 py-4">Actions</th>
                 </tr>
               </thead>

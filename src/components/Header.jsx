@@ -1,8 +1,17 @@
+import { useDispatch, useSelector } from "react-redux"
 import { Link, useLocation } from "react-router-dom"
+import { setLogin } from "../feature/stock/stockSlice"
 
 const Header = () => {
-    const {pathname} = useLocation()
-    
+    const { pathname } = useLocation()
+
+    const isLogin = useSelector((state) => {
+        return state.stock.isLogin
+    })
+
+    let dispatch = useDispatch();
+
+
     return (
         <>
             <nav className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 backdrop-blur-lg border-b border-slate-700/50 shadow-2xl w-full z-20 top-0 start-0 sticky">
@@ -17,12 +26,12 @@ const Header = () => {
                             InventoryPro
                         </span>
                     </a>
-                    
+
                     <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
                         <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-slate-700/30 rounded-2xl bg-slate-800/50 backdrop-blur-sm md:space-x-2 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent">
                             <li>
-                                <Link 
-                                    to={"/"} 
+                                <Link
+                                    to={"/"}
                                     className={`block py-3 px-6 ${pathname == "/" ? "text-white bg-[#ae54ef] rounded-xl font-medium shadow-lg  transform hover:scale-105 transition-all duration-300" : "text-slate-300 rounded-xl font-medium hover:text-white hover:bg-gradient-to-r hover:from-slate-700 hover:to-slate-600 transform hover:scale-105 transition-all duration-300"}`}
                                     aria-current="page"
                                 >
@@ -30,29 +39,34 @@ const Header = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link 
-                                    to={"/sarvice"} 
-                                   className={`block py-3 px-6 ${pathname == "/sarvice" ? "text-white bg-[#ae54ef] rounded-xl font-medium shadow-lg  transform hover:scale-105 transition-all duration-300" : "text-slate-300 rounded-xl font-medium hover:text-white hover:bg-gradient-to-r hover:from-slate-700 hover:to-slate-600 transform hover:scale-105 transition-all duration-300"}`}
+                                <Link
+                                    to={"/sarvice"}
+                                    className={`block py-3 px-6 ${pathname == "/sarvice" ? "text-white bg-[#ae54ef] rounded-xl font-medium shadow-lg  transform hover:scale-105 transition-all duration-300" : "text-slate-300 rounded-xl font-medium hover:text-white hover:bg-gradient-to-r hover:from-slate-700 hover:to-slate-600 transform hover:scale-105 transition-all duration-300"}`}
                                 >
                                     Services
                                 </Link>
                             </li>
                             <li>
-                                <Link 
-                                    to={"/contect"} 
-                                   className={`block py-3 px-6 ${pathname == "/contect" ? "text-white bg-[#ae54ef] rounded-xl font-medium shadow-lg  transform hover:scale-105 transition-all duration-300" : "text-slate-300 rounded-xl font-medium hover:text-white hover:bg-gradient-to-r hover:from-slate-700 hover:to-slate-600 transform hover:scale-105 transition-all duration-300"}`}
+                                <Link
+                                    to={"/contect"}
+                                    className={`block py-3 px-6 ${pathname == "/contect" ? "text-white bg-[#ae54ef] rounded-xl font-medium shadow-lg  transform hover:scale-105 transition-all duration-300" : "text-slate-300 rounded-xl font-medium hover:text-white hover:bg-gradient-to-r hover:from-slate-700 hover:to-slate-600 transform hover:scale-105 transition-all duration-300"}`}
                                 >
                                     Contact
                                 </Link>
                             </li>
-                            <li>
-                                <Link 
-                                    to={"/inventorydetail"} 
-                                   className={`block py-3 px-6 ${pathname == "/inventorydetail" ? "text-white bg-[#ae54ef] rounded-xl font-medium shadow-lg  transform hover:scale-105 transition-all duration-300" : "text-slate-300 rounded-xl font-medium hover:text-white hover:bg-gradient-to-r hover:from-slate-700 hover:to-slate-600 transform hover:scale-105 transition-all duration-300"}`}
-                                >
-                                    Inventory
-                                </Link>
-                            </li>
+                            {
+                                isLogin && <li>
+                                    <Link
+                                        to={"/inventorydetail"}
+                                        className={`block py-3 px-6 ${(pathname == "/inventorydetail" || pathname == "/addinventory" || pathname.includes("/editinventory")) ? "text-white bg-[#ae54ef] rounded-xl font-medium shadow-lg  transform hover:scale-105 transition-all duration-300" : "text-slate-300 rounded-xl font-medium hover:text-white hover:bg-gradient-to-r hover:from-slate-700 hover:to-slate-600 transform hover:scale-105 transition-all duration-300"}`}
+                                    >
+                                        Inventory
+                                    </Link>
+                                </li>
+                            }
+                            {isLogin ? <Link to={"/"} class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 flex items-center" onClick={() => {
+                                dispatch(setLogin(false))
+                            }}>Log Out</Link> : <Link to={"/login"} class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 flex items-center">Log in</Link>}
                         </ul>
                     </div>
                 </div>

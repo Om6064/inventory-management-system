@@ -2,7 +2,7 @@ import React from 'react';
 
 const Contect = () => {
     return (
-        <section className="min-h-screen flex items-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white py-16 px-6">
+        <section className="min-h-[91.4vh] flex items-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white py-16 px-6">
             <div className="container mx-auto grid lg:grid-cols-2 gap-16 items-center">
                 
                 {/* Text Content */}

@@ -71,7 +71,7 @@ const EditInventory = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white flex items-center justify-center px-4 py-12">
+        <div className="min-h-[91.4vh] bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white flex items-center justify-center px-4 py-12">
             <form
                 onSubmit={handleSubmit}
                 className="w-full max-w-3xl bg-white/10 backdrop-blur-md p-10 rounded-2xl shadow-xl border border-white/20"

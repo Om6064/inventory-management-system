@@ -9,6 +9,8 @@ import { ToastContainer } from "react-toastify"
 import EditInventory from "./components/EditInventory"
 import Login from "./page/Login"
 import ProtectedRouter from "./components/ProtectedRouter"
+import ProtectedRoute2 from "./components/ProtectedRouter2"
+
 
 
 
@@ -23,7 +25,7 @@ const App = () => {
                 <Route path="/addinventory" element={<ProtectedRouter Component={AddInventory} />} />
                 <Route path="/inventorydetail" element={<ProtectedRouter Component={Invantorydetails}/>}/>
                 <Route path="/editinventory/:id" element={<ProtectedRouter Component={EditInventory}/>}/>
-                <Route path="/login/" element={<Login/>}/>
+                <Route path="/login" element={<ProtectedRoute2  Component={Login}/>}/>
             </Routes>
             <ToastContainer />
         </BrowserRouter>

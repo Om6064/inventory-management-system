@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
     return (
         <>
-            <section className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 h-screen flex items-center relative overflow-hidden">
+            <section className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 h-[91.4vh] flex items-center relative overflow-hidden">
                 {/* Animated background elements */}
                 <div className="absolute inset-0 overflow-hidden">
                     <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
@@ -46,9 +46,7 @@ const Home = () => {
                             </svg>
                         </Link>
                         <Link to={"/inventorydetail"} className="inline-flex justify-center items-center py-4 px-8 text-base font-semibold text-center text-white rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 hover:bg-white/20 focus:ring-4 focus:ring-gray-100 transform hover:scale-105 transition-all duration-300 shadow-xl group">
-                            <svg className="mr-2 -ml-1 w-5 h-5 group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
-                            </svg>
+                            💻
                             Invantory Details
                         </Link>
                     </div>

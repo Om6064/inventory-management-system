@@ -8,6 +8,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import { useState } from "react";
+import DarkVeil from "../components/DarkVeil";
 
 const Invantorydetails = () => {
   const [isSort, setIsSort] = useState(false);
@@ -34,7 +35,10 @@ const Invantorydetails = () => {
 
   return (
     <div className="min-h-[91.4vh] bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white py-16 px-4">
-      <div className="container mx-auto">
+      <div className="absolute inset-0 z-0 overflow-hidden md:">
+        <DarkVeil />
+      </div>
+      <div className="container mx-auto relative z-10">
         {/* Top Filters */}
         <div className="flex flex-col gap-4 lg:flex-row justify-between items-start lg:items-center mb-10">
           <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">

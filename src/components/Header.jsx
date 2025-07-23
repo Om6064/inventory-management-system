@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { setLogin } from "../feature/stock/stockSlice";
 import { useState } from "react";
 
@@ -7,13 +7,13 @@ const Header = () => {
   const { pathname } = useLocation();
   const isLogin = useSelector((state) => state.stock.isLogin);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navItemClass = (path) =>
-    `block py-3 px-6 ${
-      pathname === path
-        ? "text-white bg-[#ae54ef] rounded-xl font-medium shadow-lg transform hover:scale-105 transition-all duration-300"
-        : "text-slate-300 rounded-xl font-medium hover:text-white hover:bg-gradient-to-r hover:from-slate-700 hover:to-slate-600 transform hover:scale-105 transition-all duration-300"
+    `block py-3 px-6 ${pathname === path
+      ? "text-white bg-[#ae54ef] rounded-xl font-medium shadow-lg transform hover:scale-105 transition-all duration-300"
+      : "text-slate-300 rounded-xl font-medium hover:text-white hover:bg-gradient-to-r hover:from-slate-700 hover:to-slate-600 transform hover:scale-105 transition-all duration-300"
     }`;
 
   return (
@@ -75,9 +75,8 @@ const Header = () => {
 
         {/* Navigation Links */}
         <div
-          className={`${
-            menuOpen ? "block" : "hidden"
-          } w-full md:flex md:w-auto md:order-1`}
+          className={`${menuOpen ? "block" : "hidden"
+            } w-full md:flex md:w-auto md:order-1`}
         >
           <ul className="flex flex-col items-center font-medium border border-slate-700/30 rounded-2xl bg-slate-800/50 backdrop-blur-sm md:space-x-2 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent">
             <li>
@@ -108,7 +107,10 @@ const Header = () => {
             <li className="mt-2 md:mt-0">
               {isLogin ? (
                 <button
-                  onClick={() => dispatch(setLogin(false))}
+                  onClick={() => {
+                    dispatch(setLogin(false))
+                    navigate("/login")
+                  }}
                   className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm py-3 px-6 w-full md:w-auto"
                 >
                   Log Out

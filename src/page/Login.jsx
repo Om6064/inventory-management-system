@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginForm } from "../feature/stock/stockSlice";
 import { Link, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import DarkVeil from "../components/DarkVeil";
 
 const Login = () => {
   const [input, setInput] = useState({ email: "", password: "" });
@@ -16,17 +18,20 @@ const Login = () => {
     e.preventDefault();
     dispatch(loginForm(input));
 
-    setTimeout(() => {
-      if (JSON.parse(localStorage.getItem("isLogin"))) {
-        navigate("/inventorydetail");
-      } else {
-        alert("Invalid Credentials!");
-      }
-    }, 100);
-  };
+
+    if (JSON.parse(localStorage.getItem("isLogin"))) {
+      navigate("/inventorydetail");
+    } else {
+      toast.error("Invalid Email or Password")
+    }
+  }
+
 
   return (
     <div className="min-h-[91.4vh] flex items-center justify-center bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-900 px-4">
+      <div className="absolute inset-0 z-0 overflow-hidden md:">
+        <DarkVeil />
+      </div>
       <div className="w-full max-w-md bg-white/10 backdrop-blur-xl rounded-2xl shadow-2xl p-8 border border-white/20">
         {/* Logo & Brand */}
         <div className="flex justify-center items-center mb-8">
@@ -88,6 +93,7 @@ const Login = () => {
           </span>
         </p>
       </div>
+      <ToastContainer />
     </div>
   );
 };

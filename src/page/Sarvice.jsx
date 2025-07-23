@@ -1,13 +1,16 @@
-import React from 'react';
+import DarkVeil from '../components/DarkVeil';
 
 const Service = () => {
     return (
         <div className="min-h-[91.4vh] bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white pt-24 pb-12 px-6">
+            <div className="absolute inset-0 z-0 overflow-hidden md:">
+                <DarkVeil />
+            </div>
             <div className="container mx-auto text-center">
-                <h2 className="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 text-transparent bg-clip-text">
+                <h2 className="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 text-transparent bg-clip-text relative z-10">
                     Our Services
                 </h2>
-                <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+                <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto relative z-10 ">
                     We provide powerful solutions to streamline your inventory and business operations efficiently.
                 </p>
 

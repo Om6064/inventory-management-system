@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { updateStocks } from "../feature/stock/stockSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import DarkVeil from "./DarkVeil";
 
 const EditInventory = () => {
     const [input, setInput] = useState({
@@ -72,6 +73,9 @@ const EditInventory = () => {
 
     return (
         <div className="min-h-[91.4vh] bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white flex items-center justify-center px-4 py-12">
+            <div className="absolute inset-0 z-0 overflow-hidden md:">
+                <DarkVeil />
+            </div>
             <form
                 onSubmit={handleSubmit}
                 className="w-full max-w-3xl bg-white/10 backdrop-blur-md p-10 rounded-2xl shadow-xl border border-white/20"

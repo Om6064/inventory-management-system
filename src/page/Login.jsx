@@ -33,7 +33,7 @@ const Login = () => {
         <DarkVeil />
       </div>
       <div className="w-full max-w-md bg-white/10 backdrop-blur-xl rounded-2xl shadow-2xl p-8 border border-white/20">
-        {/* Logo & Brand */}
+        
         <div className="flex justify-center items-center mb-8">
           <div className="w-12 h-12 bg-gradient-to-tr from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg ">
             <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -45,10 +45,10 @@ const Login = () => {
           </span>
         </div>
 
-        {/* Title */}
+        
         <h2 className="text-2xl font-bold text-white text-center mb-6">Sign in to your account</h2>
 
-        {/* Login Form */}
+        
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label htmlFor="email" className="block mb-2 text-sm text-gray-200">

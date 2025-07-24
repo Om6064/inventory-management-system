@@ -39,14 +39,14 @@ const Invantorydetails = () => {
         <DarkVeil />
       </div>
       <div className="container mx-auto relative z-10">
-        {/* Top Filters */}
+        
         <div className="flex flex-col gap-4 lg:flex-row justify-between items-start lg:items-center mb-10">
           <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">
             Inventory Details
           </h1>
 
           <div className="w-full lg:w-auto flex flex-col sm:flex-row gap-4">
-            {/* Search */}
+            
             <input
               type="text"
               onChange={handleChange}
@@ -54,7 +54,7 @@ const Invantorydetails = () => {
               className="w-full sm:w-48 p-3 rounded-lg bg-white/20 text-white placeholder-gray-300 border focus:outline-none focus:ring-2 focus:ring-purple-400"
             />
 
-            {/* Category Filter */}
+           
             <select
               onChange={handleCatgory}
               className="w-full sm:w-48 p-3 rounded-lg bg-white/20 text-white border focus:outline-none focus:ring-2 focus:ring-purple-400 "
@@ -74,7 +74,7 @@ const Invantorydetails = () => {
             </select>
 
 
-            {/* Add Product */}
+           
             <Link
               to="/addinventory"
               className="w-full sm:w-auto text-center bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-400 hover:to-pink-400 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transition-all duration-300"
@@ -84,7 +84,7 @@ const Invantorydetails = () => {
           </div>
         </div>
 
-        {/* Table Section */}
+       
         {products.length === 0 ? (
           <h2 className="text-center text-gray-300 text-lg">No Products Found</h2>
         ) : (

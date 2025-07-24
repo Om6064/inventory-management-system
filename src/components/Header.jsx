@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <nav className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 backdrop-blur-lg border-b border-slate-700/50 shadow-2xl w-full z-20 top-0 start-0 sticky">
       <div className="container mx-auto flex flex-wrap items-center justify-between p-4">
-        {/* Logo */}
+        
         <Link
           to={"/"}
           className="flex items-center space-x-3 rtl:space-x-reverse group"
@@ -44,7 +44,7 @@ const Header = () => {
           </span>
         </Link>
 
-        {/* Hamburger Button */}
+        
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden inline-flex items-center p-2 text-sm text-slate-300 rounded-lg hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-600"
@@ -73,7 +73,7 @@ const Header = () => {
           </svg>
         </button>
 
-        {/* Navigation Links */}
+       
         <div
           className={`${menuOpen ? "block" : "hidden"
             } w-full md:flex md:w-auto md:order-1`}

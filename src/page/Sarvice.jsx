@@ -15,7 +15,7 @@ const Service = () => {
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    {/* Service Card 1 */}
+                   
                     <div className="p-6 bg-white/10 border border-white/10 rounded-2xl shadow-xl backdrop-blur-md hover:scale-105 transform transition-all duration-300">
                         <h3 className="text-xl font-semibold mb-3 text-white">
                             Real-time Tracking
@@ -25,7 +25,7 @@ const Service = () => {
                         </p>
                     </div>
 
-                    {/* Service Card 2 */}
+                    
                     <div className="p-6 bg-white/10 border border-white/10 rounded-2xl shadow-xl backdrop-blur-md hover:scale-105 transform transition-all duration-300">
                         <h3 className="text-xl font-semibold mb-3 text-white">
                             Smart Reporting
@@ -35,7 +35,7 @@ const Service = () => {
                         </p>
                     </div>
 
-                    {/* Service Card 3 */}
+                    
                     <div className="p-6 bg-white/10 border border-white/10 rounded-2xl shadow-xl backdrop-blur-md hover:scale-105 transform transition-all duration-300">
                         <h3 className="text-xl font-semibold mb-3 text-white">
                             User-Friendly Interface
@@ -46,7 +46,7 @@ const Service = () => {
                     </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-10">
-                    {/* Service Card 1 */}
+                    
                     <div className="p-6 bg-white/10 border border-white/10 rounded-2xl shadow-xl backdrop-blur-md hover:scale-105 transform transition-all duration-300">
                         <h3 className="text-xl font-semibold mb-3 text-white">
                             Real-time Tracking
@@ -56,7 +56,7 @@ const Service = () => {
                         </p>
                     </div>
 
-                    {/* Service Card 2 */}
+                    
                     <div className="p-6 bg-white/10 border border-white/10 rounded-2xl shadow-xl backdrop-blur-md hover:scale-105 transform transition-all duration-300">
                         <h3 className="text-xl font-semibold mb-3 text-white">
                             Smart Reporting
@@ -66,7 +66,7 @@ const Service = () => {
                         </p>
                     </div>
 
-                    {/* Service Card 3 */}
+                    
                     <div className="p-6 bg-white/10 border border-white/10 rounded-2xl shadow-xl backdrop-blur-md hover:scale-105 transform transition-all duration-300">
                         <h3 className="text-xl font-semibold mb-3 text-white">
                             User-Friendly Interface
@@ -77,7 +77,7 @@ const Service = () => {
                     </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-10">
-                    {/* Service Card 1 */}
+                    
                     <div className="p-6 bg-white/10 border border-white/10 rounded-2xl shadow-xl backdrop-blur-md hover:scale-105 transform transition-all duration-300">
                         <h3 className="text-xl font-semibold mb-3 text-white">
                             Real-time Tracking
@@ -87,7 +87,7 @@ const Service = () => {
                         </p>
                     </div>
 
-                    {/* Service Card 2 */}
+                    
                     <div className="p-6 bg-white/10 border border-white/10 rounded-2xl shadow-xl backdrop-blur-md hover:scale-105 transform transition-all duration-300">
                         <h3 className="text-xl font-semibold mb-3 text-white">
                             Smart Reporting
@@ -97,7 +97,7 @@ const Service = () => {
                         </p>
                     </div>
 
-                    {/* Service Card 3 */}
+                    
                     <div className="p-6 bg-white/10 border border-white/10 rounded-2xl shadow-xl backdrop-blur-md hover:scale-105 transform transition-all duration-300">
                         <h3 className="text-xl font-semibold mb-3 text-white">
                             User-Friendly Interface

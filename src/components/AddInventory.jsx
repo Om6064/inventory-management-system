@@ -68,7 +68,7 @@ const AddInventory = () => {
         </h2>
 
         <div className="grid gap-6 md:grid-cols-2">
-          {/* Product Name */}
+         
           <div>
             <label htmlFor="name" className="block text-sm mb-2 font-medium text-white">
               Product Name
@@ -85,7 +85,7 @@ const AddInventory = () => {
             {error.name && <p className="text-red-400 text-sm mt-1">{error.name}</p>}
           </div>
 
-          {/* Category */}
+       
           <div>
             <label htmlFor="catagory" className="block text-sm mb-2 font-medium text-white">
               Category
@@ -105,7 +105,7 @@ const AddInventory = () => {
             {error.catagory && <p className="text-red-400 text-sm mt-1">{error.catagory}</p>}
           </div>
 
-          {/* Color Options */}
+         
           <div>
             <label className="block text-sm font-medium text-white mb-2">Color</label>
             <div className="flex flex-wrap gap-4">
@@ -126,7 +126,7 @@ const AddInventory = () => {
             {error.color && <p className="text-red-400 text-sm mt-1">{error.color}</p>}
           </div>
 
-          {/* Price */}
+         
           <div>
             <label htmlFor="price" className="block text-sm mb-2 font-medium text-white">
               Price

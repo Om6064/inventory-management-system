@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { updateStocks } from "../feature/stock/stockSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -67,7 +67,9 @@ const EditInventory = () => {
         });
 
         dispatch(updateStocks(input))
-        navigate("/inventorydetail")
+        setTimeout(() => {
+            navigate("/inventorydetail");
+        }, 1000);
 
     };
 
@@ -85,7 +87,7 @@ const EditInventory = () => {
                 </h2>
 
                 <div className="grid gap-6 md:grid-cols-2">
-                  
+
                     <div>
                         <label htmlFor="name" className="block text-sm mb-2 font-medium text-white">
                             Product Name
@@ -102,7 +104,7 @@ const EditInventory = () => {
                         {error.name && <p className="text-red-400 text-sm mt-1">{error.name}</p>}
                     </div>
 
-                 
+
                     <div>
                         <label htmlFor="catagory" className="block text-sm mb-2 font-medium text-white">
                             Category
@@ -122,7 +124,7 @@ const EditInventory = () => {
                         {error.catagory && <p className="text-red-400 text-sm mt-1">{error.catagory}</p>}
                     </div>
 
-                  
+
                     <div>
                         <label className="block text-sm font-medium text-white mb-2">Color</label>
                         <div className="flex flex-wrap gap-4">
@@ -143,7 +145,7 @@ const EditInventory = () => {
                         {error.color && <p className="text-red-400 text-sm mt-1">{error.color}</p>}
                     </div>
 
-                   
+
                     <div>
                         <label htmlFor="price" className="block text-sm mb-2 font-medium text-white">
                             Price
@@ -168,6 +170,7 @@ const EditInventory = () => {
                     Update
                 </button>
             </form>
+            <ToastContainer/>
         </div>
     );
 };

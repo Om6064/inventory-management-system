@@ -2,8 +2,8 @@ import DarkVeil from '../components/DarkVeil';
 
 const Service = () => {
     return (
-        <div className="min-h-[91.4vh] bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white pt-24 pb-12 px-6">
-            <div className="absolute inset-0 z-0 overflow-hidden md:">
+        <div className="min-h-[92.1vh]  relative text-white pt-24 pb-12 px-6">
+            <div className="absolute inset-0 z-0 overflow-hidden">
                 <DarkVeil />
             </div>
             <div className="container mx-auto text-center">

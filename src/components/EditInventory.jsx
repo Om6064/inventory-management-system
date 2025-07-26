@@ -50,13 +50,13 @@ const EditInventory = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
         const errors = validate();
         if (Object.keys(errors).length > 0) {
             setError(errors);
             return;
         }
 
-        toast.warn("Product Updated successfully!");
 
 
         setInput({
@@ -67,9 +67,9 @@ const EditInventory = () => {
         });
 
         dispatch(updateStocks(input))
-        setTimeout(() => {
-            navigate("/inventorydetail");
-        }, 1000);
+
+        navigate("/inventorydetail");
+
 
     };
 
@@ -170,7 +170,7 @@ const EditInventory = () => {
                     Update
                 </button>
             </form>
-            <ToastContainer/>
+            <ToastContainer />
         </div>
     );
 };

@@ -41,7 +41,6 @@ const AddInventory = () => {
       return;
     }
 
-    toast.success("Product added successfully!");
 
     setInput({
       name: "",
@@ -51,9 +50,10 @@ const AddInventory = () => {
     });
 
     dispatch(addStocks(input));
-    setTimeout(() => {
-      navigate("/inventorydetail");
-    }, 1000); 
+
+    navigate("/inventorydetail");
+
+
   };
 
   return (

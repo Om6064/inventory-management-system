@@ -16,10 +16,16 @@ const Header = () => {
       : "text-slate-300 rounded-xl font-medium hover:text-white hover:bg-gradient-to-r hover:from-slate-700 hover:to-slate-600 transform hover:scale-105 transition-all duration-300"
     }`;
 
+  const handleClick = () => {
+    setMenuOpen(false)
+  }
+
+
+
   return (
     <nav className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 backdrop-blur-lg border-b border-slate-700/50 shadow-2xl w-full z-20 top-0 start-0 sticky">
       <div className="container mx-auto flex flex-wrap items-center justify-between p-4">
-        
+
         <Link
           to={"/"}
           className="flex items-center space-x-3 rtl:space-x-reverse group"
@@ -44,7 +50,7 @@ const Header = () => {
           </span>
         </Link>
 
-        
+
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden inline-flex items-center p-2 text-sm text-slate-300 rounded-lg hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-600"
@@ -73,24 +79,24 @@ const Header = () => {
           </svg>
         </button>
 
-       
+
         <div
           className={`${menuOpen ? "block" : "hidden"
             } w-full md:flex md:w-auto md:order-1`}
         >
           <ul className="flex flex-col items-center font-medium border border-slate-700/30 rounded-2xl bg-slate-800/50 backdrop-blur-sm md:space-x-2 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent">
             <li>
-              <Link to={"/"} className={navItemClass("/")}>
+              <Link to={"/"} className={navItemClass("/")} onClick={handleClick}>
                 Home
               </Link>
             </li>
             <li>
-              <Link to={"/sarvice"} className={navItemClass("/sarvice")}>
+              <Link to={"/sarvice"} className={navItemClass("/sarvice")} onClick={handleClick}>
                 Services
               </Link>
             </li>
             <li>
-              <Link to={"/contect"} className={navItemClass("/contect")}>
+              <Link to={"/contect"} className={navItemClass("/contect")} onClick={handleClick}>
                 Contact
               </Link>
             </li>
@@ -108,6 +114,7 @@ const Header = () => {
               {isLogin ? (
                 <button
                   onClick={() => {
+                    setMenuOpen(false)
                     dispatch(setLogin(false))
                     navigate("/login")
                   }}
@@ -118,6 +125,7 @@ const Header = () => {
               ) : (
                 <Link
                   to={"/login"}
+                  onClick={() => {setMenuOpen(false);}}
                   className="text-white bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg  text-sm py-3 px-6 w-full md:w-auto text-center"
                 >
                   Log In

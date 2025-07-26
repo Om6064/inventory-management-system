@@ -19,7 +19,7 @@ const Invantorydetails = () => {
     toast.error("Product Deleted Successfully");
     setTimeout(() => {
       dispatch(removeStocks(id));
-    }, 500);
+    }, 100);
   };
 
   const handleChange = (e) => {
@@ -36,7 +36,7 @@ const Invantorydetails = () => {
   };
 
   return (
-    <div className="min-h-[91.4vh] bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white py-16 px-4">
+    <div className="min-h-screen relative bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white py-16 px-4">
       <div className="absolute inset-0 z-0 overflow-hidden md:">
         <DarkVeil />
       </div>

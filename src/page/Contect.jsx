@@ -3,7 +3,7 @@ import DarkVeil from "../components/DarkVeil";
 
 const Contect = () => {
     return (
-        <section className="min-h-[91.4vh] flex items-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white py-16 px-6">
+        <section className="min-h-[91.4vh]  relative flex items-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white py-16 px-6">
             <div className="absolute inset-0 z-0 overflow-hidden md:">
                 <DarkVeil />
             </div>
